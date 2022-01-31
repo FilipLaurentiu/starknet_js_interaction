@@ -1,0 +1,21 @@
+{
+  "name": "starknet_js_interaction",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FilipLaurentiu/starknet_js_interaction.git",
+  "author": "Filip Laurentiu <f.laurentiu26@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "starknet-compile ./contracts/token/ERC20.cairo --abi ./artifacts/token/ERC20_abi.json --output ./artifacts/token/ERC20.json",
+    "deploy": "npx ts-node index.ts",
+    "get_error_message": "starknet tx_status --network alpha-goerli --contract artifacts/token/ERC20.json --error_message --hash"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.0",
+    "@types/elliptic": "^6.4.14",
+    "@types/node": "^17.0.13",
+    "bn.js": "^5.2.0",
+    "ethers": "^5.5.4",
+    "starknet": "^2.5.1"
+  }
+}
