@@ -8,13 +8,17 @@ import {
     AddTransactionResponse, ec,
 } from "starknet";
 import {utils} from "ethers";
+import fs from "fs/promises"
 
 function getUint256CalldataFromBN(bn: number.BigNumberish): any {
     return {type: "struct" as const, ...uint256.bnToUint256(bn)};
 }
 
 async function main() {
-    const erc20Artifact = require("./artifacts/token/ERC20.json");
+    // const erc20Artifact = require("./artifacts/token/ERC20.json"); // <-- this parses the JSON which destroys some decimal number values, as JS cant handle big numbers
+    const erc20Artifact = await fs
+        .readFile("./artifacts/token/ERC20.txt")
+        .then((x) => x.toString());;
     const initial_supply = getUint256CalldataFromBN(
         utils.parseUnits("1000", 18).toString()
     );

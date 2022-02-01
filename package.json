@@ -6,7 +6,7 @@
   "author": "Filip Laurentiu <f.laurentiu26@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "starknet-compile ./contracts/token/ERC20.cairo --abi ./artifacts/token/ERC20_abi.json --output ./artifacts/token/ERC20.json",
+    "compile": "starknet-compile ./contracts/token/ERC20.cairo --abi ./artifacts/token/ERC20_abi.json --output ./artifacts/token/ERC20.txt",
     "deploy": "npx ts-node index.ts",
     "get_error_message": "starknet tx_status --network alpha-goerli --contract artifacts/token/ERC20.json --error_message --hash"
   },
